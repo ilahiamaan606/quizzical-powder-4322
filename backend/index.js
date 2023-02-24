@@ -1,22 +1,24 @@
-const express=require("express")
-const {connection}=require("./db")
-const {userrouter}=require("./routes/user.route")
-const {productrouter}=require("./routes/product.route")
+const express = require("express")
+const { connection } = require("./db")
+const { userrouter } = require("./routes/user.route")
+const { productrouter } = require("./routes/product.route")
+const { orderrouter } = require("./routes/order.route")
 require("dotenv").config()
-const cors=require("cors")
+const cors = require("cors")
 
-const app=express();
+const app = express();
 app.use(express.json());
 app.use(cors())
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("Backend HomePage")
 })
 
-app.use("/user",userrouter)
-app.use("/product",productrouter)
+app.use("/user", userrouter)
+app.use("/product", productrouter)
+app.use("/order", orderrouter)
 
-app.listen(process.env.port,async()=>{
+app.listen(process.env.port, async () => {
     await connection;
     console.log(`Server running at port ${process.env.port}`)
 })
