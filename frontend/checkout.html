@@ -5,12 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
-    <link rel="stylesheet" href="./Styles/signup.css">
+    <title>Checkout Page</title>
+    <!-- <link rel="stylesheet" href="./Style/index.css"> -->
+    <link rel="stylesheet" href="./Styles/checkout.css">
+    <script src="https://kit.fontawesome.com/3e90fa2a97.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- <div id="navbar">
+        <div id="child1">
+        </div>
+        <div id="child2">
+        </div>
+        <div id="child3">
+            <div>
+                <p>Join My Rewarding Moments® | all the little things add up!</p>
+            </div>
+            <hr color="#03A9F4">
 
+        </div>
+    </div> -->
     <div class="header-container">
         <!-- -------------------- TOP HEADER -------------------- -->
 
@@ -122,45 +136,28 @@
 
 
 
+    <div id="checkout-body">
+        <h2>Enter Your Card Details Here</h2>
 
-
-    <div class="navbar">
-        <p>10% off a $50+ Buy Online, Pick Up In Store Order</p>
-        <hr color="#03A9F4">
-    </div>
-    
-
-    <div id="container">
-        <h2>Hi, welcome back!</h2>
-        <form id="login" action="">
-            <input type="email" id="email" class="input" placeholder="Email" required>
-            <input type="password" id="pass" class="input" placeholder="Password" required>
+        <form id="paymentform">
+            <input id="cardnumber" type="text" placeholder="Enter Your Debit Card Number">
             <br>
-            <input type="submit" id="submit" value="Sign In">
+            <input id="name" type="text" placeholder="Enter Your Name">
+            <br>
+            <span>Enter Expiry Date:-</span>
+
+            <input id="date" type="date">
+            <br>
+            <input id="cvv" type="password" placeholder="Enter CVV">
+            <br>
+            <input type="submit" value="Proceed">
         </form>
-        <h4 class="login-p">New to our site or enrolled in My Rewarding Moments™ in store?</h4>
-        <button id="create-account">Create Account</button>
     </div>
 
-
-    <div id="signupcontainer">
-        <div id="container">
-            <h2>Create a new account</h2>
-            <p>Sign up today and enroll in My Rewarding Moments™ to start earning points!</p>
-            <form id="signup">
-                <input type="text" id="name" class="input" placeholder="Name" required>
-                <input type="email" id="email" class="input" placeholder="Email" required>
-                <br>
-                <input type="password" id="pass" class="input" placeholder="Password" required>
-                <input type="text" id="cpass" class="input" placeholder="Confirm Password" required>
-                <br>
-                <input type="submit" id="submit" value="Sign Up">
-            </form>
-    
-        </div>
-    </div>
-
+    <!-- <div id="footer">
+        <img src="./media/footer.png" alt="">
+    </div> -->
 </body>
 
 </html>
-<script src="./Script/signup.js"></script>
+<script src="./Script/checkout.js"></script>
