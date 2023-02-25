@@ -6,6 +6,12 @@ const jwt = require('jsonwebtoken');
 
 const userrouter = express.Router();
 
+userrouter.get("/",async(req,res)=>{
+
+    let users=await UserModel.find();
+    res.send(users)
+})
+
 userrouter.post("/register", async (req, res) => {
     let { name, email, password } = req.body;
 

@@ -6,40 +6,27 @@ const orderrouter = express.Router()
 
 
 
-orderrouter.get("/", (req, res) => {
+orderrouter.get("/", async (req, res) => {
 
-    if (req.body.email == "admin@gmail.com") {
-        jwt.verify(token, 'shhhhh', async function (err, decoded) {
-            if (decoded) {
-                let orders = await OrderModel.find()
-                res.send(orders)
-            }
-            else {
-                res.send({ "msg": "Wrong Credentials" })
-            }
-        })
-    }
-    else {
-        res.send({ "msg": "Wrong Credentials" })
-    }
+    let orders = await OrderModel.find()
+    res.send(orders)
 })
 
 orderrouter.post("/create", (req, res) => {
 
-    if (req.body.email == "admin@gmail.com") {
-        jwt.verify(token, 'shhhhh', async function (err, decoded) {
-            if (decoded) {
-                let orders = await OrderModel.find()
-                res.send(orders)
-            }
-            else {
-                res.send({ "msg": "Wrong Credentials" })
-            }
-        })
-    }
-    else {
-        res.send({ "msg": "Wrong Credentials" })
-    }
+    let token = req.headers.token;
+
+    jwt.verify(token, 'shhhhh', async function (err, decoded) {
+        if (decoded) {
+            req.body.userid = decoded.userid;
+            let order = new OrderModel(req.body);
+            await order.save();
+            res.send({ "msg": "Order Successfull" })
+        }
+        else {
+            res.send({ "msg": "Login Again" })
+        }
+    })
 })
 
 

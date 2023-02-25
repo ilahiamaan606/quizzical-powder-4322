@@ -1,7 +1,7 @@
 
 
 let token = localStorage.getItem("token");
-let cartData = JSON.parse(localStorage.getItem("cart_data"))||[];
+let cartData = JSON.parse(localStorage.getItem("cart_data")) || [];
 
 let baseURL = "https://dark-cyan-fish-yoke.cyclic.app"
 
@@ -38,14 +38,24 @@ form.addEventListener("submit", (e) => {
 
     let obj = {
         name: form.name.value,
-        card:form.cardnumber.value,
-        order:cartData,
+        card: form.cardnumber.value,
+        order: cartData,
     }
-
+    ordercreate(obj)
 })
 
-async function orderdata(){
-    let res=await fetch("")
+async function ordercreate(obj) {
+
+    let res = await fetch("http://localhost:9090/order/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "token": localStorage.getItem("token") },
+        body: JSON.stringify(obj)
+    })
+    let data=await res.json()
+    console.log(data)
+    alert(data.msg)
+    localStorage.removeItem("cart_data")
+    window.location.href = "index.html";
 }
 
 
