@@ -5,6 +5,18 @@ const { authenticate } = require("../middleware/authenticate")
 
 const productrouter = express.Router();
 
+productrouter.get("/", async (req, res) => {
+    // let {token}=req.headers;
+    try {
+        let note = await ProductModel.find()
+        res.send(note)
+    } catch (error) {
+        res.send({ "msg": error })
+    }
+
+
+})
+
 productrouter.get("/boy", async (req, res) => {
     // let {token}=req.headers;
     try {
@@ -77,7 +89,7 @@ productrouter.patch("/update", authenticate, async (req, res) => {
 productrouter.delete("/delete/:_id", authenticate, async (req, res) => {
 
     await ProductModel.findByIdAndDelete(req.params);
-    res.send({ "msg": "Post Deleted" })
+    res.send({ "msg": "Product Deleted" })
 })
 
 module.exports = {
