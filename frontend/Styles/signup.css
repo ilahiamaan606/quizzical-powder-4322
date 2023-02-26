@@ -219,3 +219,10 @@ html {
 #submit:hover {
     cursor: pointer;
 }
+
+#admin {
+    margin-top: 150px;
+    margin-left: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}

@@ -53,9 +53,10 @@ function display(data){
 function productcard(ele) {
     let qwe = `<div>
       <img src=${ele.image1}>
+      <hr>
       <h3>${ele.name}</h3>
-      <p>Price:${ele.price.toFixed(2)}</p>
-      <p>Rating:${ele.rating}</p>
+      <p>Price: ${ele.price.toFixed(2)}</p>
+      <p>Rating: ${ele.rating}</p>
       <button class=delete data-id=${ele._id}>Delete</button>
     </div>`
     return qwe;

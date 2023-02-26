@@ -66,6 +66,8 @@ loginform.addEventListener("submit", (e) => {
         .then((res) => {
             alert(res.msg)
             if(res.token){
+                localStorage.setItem("token",res.token)
+                localStorage.setItem("name",res.name)
                 window.location.href = "index.html";
             }
         })
