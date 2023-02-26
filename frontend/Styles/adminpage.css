@@ -173,9 +173,6 @@ body{
 #add-products{
     display: none;
 }
-#edit-products{
-    display: none;
-}
 #showusers{
     display: none;
 }
@@ -183,14 +180,6 @@ body{
     display: none;
 }
 #input-form input{
-    /* margin-left: 30%; */
-    margin: 20px 0px 0px 25%;
-    height: 30px;
-    width: 50%;
-    border-radius: 7px;
-    
-}
-#edit-form input{
     /* margin-left: 30%; */
     margin: 20px 0px 0px 25%;
     height: 30px;
@@ -207,16 +196,7 @@ body{
     margin-bottom: 30px;
     font-size: 17px;
 }
-#edit-form input[type="submit"]{
-    width: 20%;
-    margin-left: 42%;
-    background-color: cornflowerblue;
-    border: none;
-    color: white;
-    margin-bottom: 30px;
-    font-size: 17px;
-    
-}
+
 table{
     margin-top: 50px;
     width:1100px
@@ -228,119 +208,3 @@ table, th, td {
     text-align: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
   }
-
-@media all and (min-width:768px) and (max-width:1024px){
-    #main-container{
-        height: auto;
-        width: 100%;
-        border: 1px solid white;
-        display: flex;
-    }
-    #admin{
-        margin-left: 40px;
-    }
-    #show-all-product{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-    
-    }
-    #user-logo{
-        margin-left: 70%;
-        /* height: 3% */
-    }
-    .edit-btn{
-        margin-left: 10px;
-        background-color: skyblue;
-        height: 25px;
-        width: 80px;
-        border: none;
-        border-radius: 7px;
-    }
-    .delete-btn{
-        margin-left: 70px;
-        background-color: red;
-        color: white;
-        height: 25px;
-        width: 80px;
-        border-radius: 7px;
-        border: none;
-    }
-    #all-buttons button:hover{
-        background-color:black;
-        color: white;
-        cursor: pointer;
-    }
-}
-@media all and (min-width:320px) and (max-width:767px){
-    #show-all-product{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-    
-    }
-    #all-buttons{
-        /* display: inline; */
-        display: flex;
-        /* justify-content:space-around; */
-        height: 0px;
-        /* position: relative; */
-    }
-    #all-buttons button{
-        height: 50px;
-        width: 300px;
-        
-    }
-    #all-buttons hr{
-        display: none;
-    }
-    #sort-and-search{
-        display: grid;
-        margin-top: 90px;
-    }
-    #sorting-data{
-        width: 50%;
-       /* margin-left: 0%; */
-    }
-    #search{
-        width: 80%;
-        /* margin-left: 20%; */
-    }
-    #show{
-        height: auto;
-        width: 75%;
-        margin: 10px;
-        margin-top: 50%;
-        
-    }
-    #input-form input{
-       
-        margin: 10px 0px 20px 5%;
-        height: 30px;
-        width: 90%;
-        border-radius: 7px;
-    }
-    #edit-form input{
-        margin: 10px 0px 20px 5%;
-        height: 30px;
-        width: 90%;
-        border-radius: 7px;
-        
-    }
-    #user-logo{
-        margin-left: 30%;
-        /* height: 3% */
-    }
-    #logout{
-        height: 30px;
-        width: 80px;
-        margin-left: 20px;
-        background-color: blue;
-        color: white;
-        border: none;
-        border-radius: 10px;
-    }
-    #all-buttons button:hover{
-        background-color:black;
-        color: white;
-        cursor: pointer;
-    }
-}
