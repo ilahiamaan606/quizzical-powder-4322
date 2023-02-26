@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
 
 async function ordercreate(obj) {
 
-    let res = await fetch("http://localhost:9090/order/create", {
+    let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/order/create", {
         method: "POST",
         headers: { "Content-Type": "application/json", "token": localStorage.getItem("token") },
         body: JSON.stringify(obj)

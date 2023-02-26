@@ -23,7 +23,7 @@ registerform.addEventListener("submit", (e) => {
 
     if (obj.password == obj.cpassword) {
 
-        fetch("http://localhost:9090/user/register",
+        fetch("https://busy-cyan-cheetah-garb.cyclic.app/user/register",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ loginform.addEventListener("submit", (e) => {
         password: loginform.pass.value,
     }
 
-    fetch("http://localhost:9090/user/login",
+    fetch("https://busy-cyan-cheetah-garb.cyclic.app/user/login",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
