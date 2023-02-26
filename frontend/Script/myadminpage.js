@@ -2,7 +2,6 @@ let addproductsform = document.getElementById("add-products");
 let allproducts = document.getElementById("all-products");
 let showproducts = document.getElementById("show-all-products");
 let addProduct = document.getElementById("addProduct")
-// let users = document.getElementById("users")
 
 let showallproduct = document.getElementById("show-all-product")
 let productform = document.getElementById("input-form")

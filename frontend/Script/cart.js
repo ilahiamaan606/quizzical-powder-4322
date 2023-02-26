@@ -63,20 +63,18 @@ function displaycart(data)
         cartItemImage.setAttribute('class','cart-item-image');
         let cartImg = document.createElement("img");
         cartImg.setAttribute('src',e.image1);
-        cartItemImage.append(cartImg);                      //Image appended
+        cartItemImage.append(cartImg);                      
 
         let cartItemInfo = document.createElement("div");
         cartItemInfo.setAttribute('class','cart-item-info');
-        // let itemBrand = document.createElement("span");
-        // itemBrand.setAttribute('class','item-brand');
-        // itemBrand.innerText = e.category;
+        
         let itemName = document.createElement("p");
         itemName.setAttribute('class','item-name');
         itemName.innerText = e.name;
         let itemCategory = document.createElement("p");
         itemCategory.setAttribute('class','item-category');
         itemCategory.innerText = `Size: ${e.size}` ;
-        cartItemInfo.append(itemName,itemCategory);   //Item info appended
+        cartItemInfo.append(itemName,itemCategory);   
 
         let itemQnt = document.createElement("div");
         itemQnt.setAttribute('class','item-qnt');
@@ -90,7 +88,7 @@ function displaycart(data)
         let itemQuant = document.createElement("span");
         itemQuant.setAttribute('class','item-quant');
         itemQuant.innerText=1;
-        itemQnt.append(dec,itemQuant,inc);                     //Quantity appended
+        itemQnt.append(dec,itemQuant,inc);                     
 
         let itemPrice = document.createElement("div");
         itemPrice.setAttribute('class','item-price');
@@ -100,11 +98,11 @@ function displaycart(data)
         let remove = document.createElement("button");
         remove.setAttribute('class','remove-item');
         remove.innerText="Remove";
-        itemPrice.append(price,remove);                        //price and removebtn appended
+        itemPrice.append(price,remove);                        
 
         
 
-        inc.addEventListener('click',()=>{                      // Increament Part
+        inc.addEventListener('click',()=>{                      
             temp = temp - (e.price*itemQuant.innerText);
             itemQuant.innerText++;
             temp =  Math.ceil(temp + (e.price*itemQuant.innerText));
@@ -112,7 +110,7 @@ function displaycart(data)
             grandTotal.innerText="$"+temp;
         })
 
-        dec.addEventListener('click',()=>{                      // Decreament Part
+        dec.addEventListener('click',()=>{                      
             if(itemQuant.innerText > 1)
             {
                 temp = temp - (e.price*itemQuant.innerText);
@@ -127,7 +125,7 @@ function displaycart(data)
         subTotal.innerText="$"+temp;
         grandTotal.innerText="$"+temp;
 
-        remove.addEventListener('click',()=>{                   // Delete Part 
+        remove.addEventListener('click',()=>{                   
             let removedData = cartData.filter((ele,ind)=>{
                 if(ind==i) return false;
                 return true;
@@ -146,7 +144,7 @@ function displaycart(data)
 
             cartItem.append(cartItemImage,cartItemInfo,itemQnt,itemPrice);
             dataContainer.append(cartItem)
-            console.log("hi")
+            // console.log("hi")
        
     })
 }
