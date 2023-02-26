@@ -11,7 +11,7 @@ if(myname){
 
 async function fetching() {
     try {
-        let res = await fetch("http://localhost:9090/product/boy", { method: "GET", });
+        let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/product/boy", { method: "GET", });
         data = await res.json()
         rendercard(data);
         sortedData(data)
