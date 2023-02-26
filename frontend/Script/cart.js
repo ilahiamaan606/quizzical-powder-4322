@@ -7,6 +7,13 @@ let checkOut = document.getElementById("check-out");
 let cartContainer = document.getElementById("cart-container")
 let cartEmptyCont = document.getElementById("cart-empty-container")
 let goHomeBtn = document.getElementById("go-home");
+let username= document.getElementById("user-name")
+
+let myname=localStorage.getItem("name");
+
+if(myname){
+    username.innerHTML=myname
+}
 
 let temp = 0;
 
@@ -32,15 +39,15 @@ displaycart(cartData)
 
 
 checkOut.addEventListener('click',()=>{
-    localStorage.setItem('total_price',temp);
-    window.location.href="./checkoutForm.html";
+    if(localStorage.getItem("token")){
+        localStorage.setItem('total_price',temp);
+    window.location.href="./checkout.html";
     temp = 0;
-})
-document.getElementById("baby-girl-img").addEventListener('click',()=>{
-    window.location.href = "/product_girl.html"
-})
-document.getElementById("baby-boy-img").addEventListener('click',()=>{
-    window.location.href = "/productpage.html"
+    }
+    else{
+        alert("Please Login First")
+    }
+    
 })
 
 

@@ -1,12 +1,20 @@
 let container = document.getElementById("listedproduct");
 let cartdata=JSON.parse(localStorage.getItem("cart_data")) || [];
+let sorted_value=document.getElementById("sorting-data")
+let username= document.getElementById("user-name")
+
+let myname=localStorage.getItem("name");
+
+if(myname){
+    username.innerHTML=myname
+}
 
 async function fetching() {
     try {
         let res = await fetch("http://localhost:9090/product/boy", { method: "GET", });
         data = await res.json()
-        console.log(data)
-        rendercard(data)
+        rendercard(data);
+        sortedData(data)
     } catch (error) {
         console.log(error)
     }
@@ -30,48 +38,7 @@ function rendercard(data) {
         let div4 = document.createElement("div");
         let h3 = document.createElement("h2");
         h3.innerText = "$ " + element.price;
-
-        // let div5 = document.createElement("div");
-        // div5.setAttribute("class", "offdiv");
-        // let p0 = document.createElement("s");
-        // p0.innerText = "$" + Math.floor(element.price + 11);
-        // let off = document.createElement("p");
-        // if (element.price > 1 && element.price <= 10) {
-        //     off.innerText = "10%off"
-        // } else if (element.price > 10 && element.price <= 20) {
-        //     off.innerText = "16%off"
-        // } else if (element.price > 20 && element.price <= 25) {
-        //     off.innerText = "21%off"
-        // } else {
-        //     off.innerText = "37%off"
-        // }
-
-        // div5.append(p0, off)
         div4.append(h3);
-        // let button = document.createElement("button");
-        // button.setAttribute("class", "addtofav")
-        // button.innerText = "❤️";
-
-        // button.addEventListener("click", (e) => {
-        //     e.preventDefault();
-        //     let added = false;
-        //     for (let i = 0; i < lsdata.length; i++) {
-        //         if (element._id == lsdata[i].id) {
-        //             added = true;
-        //             break;
-        //         }
-        //     }
-        //     if (added == true) {
-        //         alert("PRODUCT ALREADY ADDED TO FAVORITE")
-        //     } else {
-        //         lsdata.push(element);
-        //         localStorage.setItem("fav_data", JSON.stringify(lsdata));
-        //         alert("PRODUCT ADDED TO FAVORITE SUSSFULLY");
-        //     }
-
-
-        // })
-
         div1.append(div4);
 
         let div2 = document.createElement("div");
@@ -80,6 +47,9 @@ function rendercard(data) {
         p1.innerText = element.name;
         let p2 = document.createElement("p");
         p2.innerText = element.category;
+
+        let p3 = document.createElement("p");
+        p3.innerText = `Rating:${element.rating}`;
 
         let btn = document.createElement("button");
         btn.setAttribute("class", "buyitem");
@@ -103,9 +73,29 @@ function rendercard(data) {
             }
         })
 
-        div2.append(p1, p2);
+        div2.append(p1, p2,p3);
 
         card.append(img, div1, div2, btn);
         container.append(card);
     });
+}
+
+function sortedData(data){
+    sorted_value.addEventListener("change",function(){
+        if(sorted_value.value==""){
+            rendercard(data)
+        }
+        else if(sorted_value.value=="lth"){
+            data.sort((a,b)=> a.price-b.price)
+            rendercard(data)
+        }else if(sorted_value.value=="htl"){
+            data.sort((a,b)=> b.price-a.price)
+            rendercard(data)
+        }
+        else if(sorted_value.value=="rating"){
+            data.sort((a,b)=> b.rating-a.rating)
+            rendercard(data)
+        }
+        
+      }) 
 }

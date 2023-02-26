@@ -137,14 +137,15 @@
 #checkout-body{
     width: 70%;
     margin: auto;
+    margin-top: 30px;
 }
 form{
     margin-top: 60px;
-    margin-left: 50px;
 }
 #checkout-body>h2{
     color: #444;
-    font-size: 16px;
+    font-size: 25px;
+    margin-left: 35px;
 }
 
 #checkout-body>form>input:nth-child(1),#checkout-body>form>input:nth-child(3){

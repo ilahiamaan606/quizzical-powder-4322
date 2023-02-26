@@ -1,7 +1,12 @@
-
-
 let token = localStorage.getItem("token");
 let cartData = JSON.parse(localStorage.getItem("cart_data")) || [];
+let username= document.getElementById("user-name")
+
+let myname=localStorage.getItem("name");
+
+if(myname){
+    username.innerHTML=myname
+}
 
 let baseURL = "https://dark-cyan-fish-yoke.cyclic.app"
 

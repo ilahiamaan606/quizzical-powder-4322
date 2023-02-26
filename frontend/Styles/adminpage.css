@@ -107,6 +107,7 @@ body{
     margin: 10px;
     margin-left: 0px;
     padding-bottom: 10px;
+    padding-left: 10px;
     /* border: 1px solid black; */
     line-height: 1.8ch;
 }
@@ -116,8 +117,8 @@ body{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-#show-all-product h4,#show-all-product p{
-    margin-left: 10px;
+#show-all-product h4,#show-all-product p,#show-all-product h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #sort-and-search{
     display: flex;
@@ -155,8 +156,7 @@ body{
     color: white;
     font-size: 15px;
 }
-.delete-btn{
-    margin-left: 70px;
+.delete{
     background-color: red;
     color: white;
     height: 25px;
