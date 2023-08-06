@@ -1,0 +1,46 @@
+#order-details {
+    /* background-color: ; */
+    padding: 10px;
+  }
+  
+  .order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .mrp {
+    font-weight: bold;
+  }
+  
+  .category {
+    margin-left: 10px;
+  }
+  
+  .color {
+    margin-left: 10px;
+  }
+  
+  .product-image {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+  }
+  
+  .name {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .price {
+    margin-left: 10px;
+  }
+  
+  .rating {
+    margin-left: 10px;
+  }
+  
+  .size {
+    margin-left: 10px;
+  }
+  

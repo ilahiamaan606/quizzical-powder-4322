@@ -1,3 +1,5 @@
+
+
 let createaccount = document.getElementById("create-account");
 let logincontainer = document.getElementById("container");
 let signupcontainer = document.getElementById("signupcontainer");
@@ -17,13 +19,13 @@ registerform.addEventListener("submit", (e) => {
     let obj = {
         name: registerform.name.value,
         email: registerform.email.value,
-        password: registerform.pass.value,
+        pass: registerform.pass.value,
         cpassword: registerform.cpass.value
     }
+    // console.log(obj)
+    if (obj.pass == obj.cpassword && obj.pass.length>6) {
 
-    if (obj.password == obj.cpassword) {
-
-        fetch("https://busy-cyan-cheetah-garb.cyclic.app/user/register",
+        fetch("https://dull-rose-spider-cuff.cyclic.app/users/signup",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -39,7 +41,7 @@ registerform.addEventListener("submit", (e) => {
             })
     }
     else {
-        alert("Confirm Password is different.")
+        alert(" Password must be at least 6 characters long or the password enterd in confirm password does not match")
     }
 
 
@@ -47,16 +49,18 @@ registerform.addEventListener("submit", (e) => {
 
 })
 
+
+
 let loginform = document.getElementById("login");
 
 loginform.addEventListener("submit", (e) => {
     e.preventDefault();
     let obj = {
         email: loginform.email.value,
-        password: loginform.pass.value,
+        pass: loginform.pass.value,
     }
 
-    fetch("https://busy-cyan-cheetah-garb.cyclic.app/user/login",
+    fetch("https://dull-rose-spider-cuff.cyclic.app/users/login",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -65,6 +69,7 @@ loginform.addEventListener("submit", (e) => {
         .then(res => res.json())
         .then((res) => {
             alert(res.msg)
+            console.log(res.msg)
             if(res.token){
                 localStorage.setItem("token",res.token)
                 localStorage.setItem("name",res.name)
@@ -75,4 +80,3 @@ loginform.addEventListener("submit", (e) => {
             console.log(err)
         })
 })
-

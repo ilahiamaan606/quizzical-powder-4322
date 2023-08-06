@@ -1,20 +1,74 @@
+let mydata;
 let container = document.getElementById("listedproduct");
 let cartdata=JSON.parse(localStorage.getItem("cart_data")) || [];
+let cartdetail=JSON.parse(localStorage.getItem("cartdetail")) || [];
 let sorted_value=document.getElementById("sorting-data")
-let username= document.getElementById("user-name")
+let username1= document.getElementById("user-name")
 
-let myname=localStorage.getItem("name");
 
-if(myname){
-    username.innerHTML=myname
+let username = document.getElementById("username")
+
+let myname1=localStorage.getItem("name");
+
+
+
+if (myname1) {
+    username.innerHTML = myname1
 }
+
+const token = localStorage.getItem('token');
+
+if (token) {
+    username1.innerText = 'Logout';
+    username1.setAttribute("href", "index.html");
+  } else {
+    username1.innerText = 'Sign In';
+    username1.setAttribute("href", "signup.html");
+  }
+
+if (username1.innerText == "Logout") {
+
+  
+
+    username1.addEventListener("click", async (e) => {
+  
+    //   e.preventDefault()
+  
+    //   const response = await fetch('https://dull-rose-spider-cuff.cyclic.app/users/logout', {
+    //     method: 'GET',
+    //     headers: {
+    //       'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //     }
+    //   });
+    //   const data = await response.json();
+    //   console.log(data)
+      localStorage.removeItem('token');
+      localStorage.removeItem('name');
+      alert("You are Logged Out Sucessfully")
+      location.reload() 
+  
+  
+      // console.log(err);
+      // alert('Something went wrong!');
+  
+    })
+  
+  }
+
+
+  if (username1.innerText == "Sign In") {
+
+    username1.setAttribute("href", "signup.html");
+  
+  }
 
 async function fetching() {
     try {
-        let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/product/girl", { method: "GET", });
+        let res = await fetch("https://dull-rose-spider-cuff.cyclic.app/product/girl", { method: "GET", });
         data = await res.json()
         rendercard(data);
-        sortedData(data)
+        sortedData(data);
+        mydata=data;
     } catch (error) {
         console.log(error)
     }
@@ -99,3 +153,62 @@ function sortedData(data){
         
       }) 
 }
+
+collap()
+
+function collap(){
+    let coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        } 
+    });
+    }
+}
+
+function pricefilter(){
+    let cb=document.querySelectorAll("#pricefilter")
+    for(let i=0;i<cb.length;i++){
+      if(cb[i].defaultValue=="0to20" && cb[i].checked== true){
+        let newdata1=mydata.filter((element,index)=>{
+            if(element.price<=20){
+                return element;
+            }
+            
+        });
+        rendercard(newdata1);
+        sortedData(newdata1)
+        break;
+      }else if(cb[i].defaultValue=="20to30" && cb[i].checked== true){
+        let newdata2=mydata.filter((element,index)=>{
+            if(element.price>20 && element.price<=30){
+                return element;
+            }
+            
+        });
+        rendercard(newdata2);
+        sortedData(newdata2)
+        break;
+      }else if(cb[i].defaultValue=="30above" && cb[i].checked== true){
+        let newdata1=mydata.filter((element,index)=>{
+            if(element.price>30){
+                return element;
+            }
+            
+        });
+        rendercard(newdata1);
+        sortedData(newdata1)
+        break;
+      }else{
+        continue;
+      }
+    }
+    // console.log(mydata)
+    
+  }

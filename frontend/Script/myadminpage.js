@@ -27,7 +27,9 @@ showproducts.addEventListener("click", () => {
 
 async function displayproducts() {
     allproducts.style.display = "block";
-    let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/product")
+
+    let res = await fetch("https://dull-rose-spider-cuff.cyclic.app/product")
+
     let data = await res.json();
     display(data)
     sortedData(data)
@@ -62,7 +64,9 @@ function productcard(ele) {
 }
 
 async function deleteproduct(id) {
-    let res = await fetch(`https://busy-cyan-cheetah-garb.cyclic.app/product/delete/${id}`,
+
+    let res = await fetch(`https://dull-rose-spider-cuff.cyclic.app/product/delete/${id}`,
+
         {
             method: "DELETE",
             headers: { "token": localStorage.getItem("token") }
@@ -116,7 +120,9 @@ addProduct.addEventListener("click", () => {
         }
         console.log(obj)
 
-        let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/product/create",
+
+        let res = await fetch("https://dull-rose-spider-cuff.cyclic.app/product/create",
+
             {
                 method: "POST",
                 headers: {
@@ -126,6 +132,7 @@ addProduct.addEventListener("click", () => {
                 body: JSON.stringify(obj)
             })
         let data = await res.json();
+        console.log(data)
         alert(data.msg)
     })
 })
@@ -138,7 +145,8 @@ userBtn.addEventListener("click", async () => {
     showorders.style.display = "none";
     showusers.style.display = "block";
 
-    let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/user")
+
+    let res = await fetch("https://dull-rose-spider-cuff.cyclic.app/users")
     let data = await res.json()
     console.log(data)
 
@@ -164,7 +172,9 @@ orderBtn.addEventListener("click", async () => {
     showusers.style.display = "none";
     showorders.style.display = "block";
 
-    let res = await fetch("https://busy-cyan-cheetah-garb.cyclic.app/order")
+
+    let res = await fetch("https://dull-rose-spider-cuff.cyclic.app/order")
+
     let data = await res.json()
     console.log(data)
 
@@ -177,8 +187,10 @@ orderBtn.addEventListener("click", async () => {
 function displayorder(ele) {
     let abc= `<tr>
         <td>${ele._id}</td>
+        <td>${ele.name}</td>
+        <td>${ele.email}</td>
         <td>${ele.userid}</td>
-        <td>${ele.card}</td>
+        <td>${ele.amount}</td>
     `;
     let qwe=ele.order.map(element=>{
         return element.name
